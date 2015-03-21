@@ -1,8 +1,8 @@
-<div class="col-xs-12 todoList" ng-repeat="todo in appF.todos" ng-click="saveTodo(todo)">
-    <div class="col-xs-11">
+<div class="row-fluid todoList" ng-repeat="todo in appF.todos" ng-click="saveTodo(todo)">
+    <div class="col-xs-9">
         <span>{{todo.todo}}</span>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-2">
         <input type="checkbox" ng-model="todo.checked" />
     </div>
 </div>

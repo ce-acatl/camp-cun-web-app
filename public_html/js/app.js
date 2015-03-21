@@ -78,6 +78,20 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
                 var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
             } 
         }
+        var infoWindow = new google.maps.InfoWindow();
+        var addMarker = function(place, p){
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(place.latitude,place.longitude),
+                map: scope.map,
+                title: place.name,
+                icon: "img/marker.png"
+            });
+            google.maps.event.addListener(marker, 'click', function(){
+                infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlaceById('+place.id+')">' + place.name + '</a>');
+                infoWindow.open(scope.map, marker);
+            });
+            $compile($("#m"+p))(scope);
+        }
         scope.initializeMap = function(){
             var latlng = new google.maps.LatLng(21.155783,-86.840402);
             var myOptions = {
@@ -85,30 +99,15 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.TERRAIN
             };
-            var map = new google.maps.Map(document.getElementById('map'),myOptions);
-
+            scope.map = new google.maps.Map(document.getElementById('map'),myOptions);
             for (var p in AppF.places){
                 var place = AppF.places[p];
-                var infoWindow = new google.maps.InfoWindow();
-                var marker = [];
-                marker[p] = new google.maps.Marker({
-                    position: new google.maps.LatLng(place.latitude,place.longitude),
-                    map: map,
-                    title: place.name,
-                    icon: "img/marker.png"
-                });
-                google.maps.event.addListener(marker[p], 'click', function(){
-                    infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlaceById('+place.id+')">' + place.name + '</a>');
-                    infoWindow.open(map, marker[p]);
-                });
-            }
-            for(var p in AppF.places){
-                $compile($("#m"+p))(scope);
+                addMarker(place,p);
             }
             
-            google.maps.event.addListenerOnce(map, 'idle', function() {
-                google.maps.event.trigger(map, 'resize');
-                map.setCenter(latlng);
+            google.maps.event.addListenerOnce(scope.map, 'idle', function() {
+                google.maps.event.trigger(scope.map, 'resize');
+                scope.map.setCenter(latlng);
             });
         }
         var setData = function(when){

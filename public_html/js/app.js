@@ -1,8 +1,8 @@
 'use strict';
 var App = angular.module('campCunApp', ['angular-loading-bar']);
 
-App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
-    function (scope, AppF, Local, $compile) {
+App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile','$parse',
+    function (scope, AppF, Local, $compile, $parse) {
         scope.changeTab = function(tab){
             AppF.mainView = tab;
             Local.setData("tab",AppF.mainView);
@@ -90,6 +90,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
                 infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlaceById('+place.id+')">' + place.name + '</a>');
                 infoWindow.open(scope.map, marker);
             });
+            $parse($("#m"+p))(scope);
             $compile($("#m"+p))(scope);
         }
         scope.initializeMap = function(){

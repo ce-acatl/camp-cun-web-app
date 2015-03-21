@@ -97,7 +97,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
                     title: place.name,
                     icon: "img/marker.png"
                 });
-                google.maps.event.addListenerOnce(marker[p], 'click', function(){
+                google.maps.event.addListener(marker[p], 'click', function(){
                     infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlaceById('+place.id+')">' + place.name + '</a>');
                     infoWindow.open(map, marker[p]);
                 });

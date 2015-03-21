@@ -91,7 +91,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile','$parse',
                 infoWindow.open(scope.map, marker);
             });
             $parse($("#m"+p))(scope);
-            $compile($("#m"+p))(scope);
+            $compile($("#m"+p).contents())(scope);
         }
         scope.initializeMap = function(){
             var latlng = new google.maps.LatLng(21.155783,-86.840402);

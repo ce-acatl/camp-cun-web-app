@@ -99,7 +99,7 @@ App.factory('AppF', ['$q','AjaxS','LocalS',
             mainView: (Local.getData("tab")) ? Local.getData("tab") : "map",
             subMenu: false,
             loggedIn: false,
-            path: "",
+            path: "apps/camp-cun-view/public_html",
             api: "http://tu-desarrollo.com/apps/camp-cun-api/",
 //            api: "index.php?url=",
             getAll: function(){

@@ -117,7 +117,7 @@ App.directive('directory', ['AppF',
             strict: "E",
             scope: true,
             transclude: true,
-            templateUrl: AppF.path+"/directory.html",
+            templateUrl: "directory.html",
             controller: "tabsCtrl",
             link: function (scope, ele, attr, ctrl) {
                 
@@ -131,7 +131,7 @@ App.directive('place', ['AppF',
             strict: "E",
             scope: true,
             transclude: true,
-            templateUrl: AppF.path+"/place.html",
+            templateUrl: "place.html",
             controller: "tabsCtrl",
             link: function (scope, ele, attr, ctrl) {
                 
@@ -145,7 +145,7 @@ App.directive('todos', ['AppF',
             strict: "E",
             scope: true,
             transclude: true,
-            templateUrl: AppF.path+"/todos.html",
+            templateUrl: "todos.html",
             controller: "tabsCtrl",
             link: function (scope, ele, attr, ctrl) {
                 

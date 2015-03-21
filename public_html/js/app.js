@@ -78,6 +78,9 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
                 });
                 map.setCenter(marker.position);
                 marker.setMap(map);
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+                    google.maps.event.trigger(map, 'resize');
+                });
             } else {
                 var mapOptions = {
                   center: { lat: 21.002357, lng: -87.170852},

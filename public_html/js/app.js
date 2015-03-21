@@ -53,15 +53,16 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
             for (var p in AppF.places){
                 var place = AppF.places[p];
                 var infoWindow = new google.maps.InfoWindow();
-                var marker = new google.maps.Marker({
+                var marker = [];
+                marker[p] = new google.maps.Marker({
                     position: new google.maps.LatLng(place.latitude,place.longitude),
                     map: map,
                     title: place.name,
                     icon: "img/marker.png"
                 });
-                google.maps.event.addListenerOnce(marker, 'click', function(){
+                google.maps.event.addListenerOnce(marker[p], 'click', function(){
                     infoWindow.setContent('<a ng-click="goToPlace('+place+')">' + marker.title + '</a>');
-                    infoWindow.open($scope.map, marker);
+                    infoWindow.open(map, marker[p]);
                 });
             }
             

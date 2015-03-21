@@ -30,7 +30,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
                         position: new google.maps.LatLng(place.latitude,place.longitude),
                         map: map,
                         title: place.name,
-                        icon: AppF.path+"/img/marker.png"
+                        icon: "img/marker.png"
                     });
                 }
             }
@@ -76,7 +76,7 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
                     var marker = new google.maps.Marker({
                         position: myLatlng,
                         title:AppF.place.name,
-                        icon: AppF.path+"/img/marker.png"
+                        icon: "img/marker.png"
                     });
                 } else {
                     var mapOptions = {

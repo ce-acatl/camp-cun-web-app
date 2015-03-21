@@ -6,6 +6,33 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
         scope.changeTab = function(tab){
             AppF.mainView = tab;
             Local.setData("tab",AppF.mainView);
+            if(tab == "map"){
+                scope.initializeMap();
+                
+            }
+        }
+        scope.initializeMap = function(){
+            var latlng = new google.maps.LatLng(21.155783,-86.840402);
+            var myOptions = {
+                zoom: 6,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.TERRAIN
+            };
+            var map = new google.maps.Map(document.getElementById('map'),myOptions);
+
+            for (var p in AppF.places){
+                var place = AppF.places[p];
+                var marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(place.latitude,place.longitude),
+                    map: map,
+                    title: place.name,
+                    icon: "img/marker.png"
+                });
+            }
+            google.maps.event.addListenerOnce(map, 'idle', function() {
+                google.maps.event.trigger(map, 'resize');
+                map.setCenter(latlng);
+            });
         }
         var setData = function(when){
             if(when === "afterLocal"){
@@ -15,29 +42,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
             scope.appF = AppF;
             console.log(scope.appF,"appF");
             // Set map here
-            scope.initializeMap = function(){
-                var latlng = new google.maps.LatLng(21.155783,-86.840402);
-                var myOptions = {
-                    zoom: 6,
-                    center: latlng,
-                    mapTypeId: google.maps.MapTypeId.TERRAIN
-                };
-                var map = new google.maps.Map(document.getElementById('map'),myOptions);
-                
-                for (var p in AppF.places){
-                    var place = AppF.places[p];
-                    var marker = new google.maps.Marker({
-                        position: new google.maps.LatLng(place.latitude,place.longitude),
-                        map: map,
-                        title: place.name,
-                        icon: "img/marker.png"
-                    });
-                }
-                google.maps.event.addListenerOnce(map, 'idle', function() {
-                    google.maps.event.trigger(map, 'resize');
-                    map.setCenter(latlng);
-                });
-            }
+            
             scope.initializeMap();
         }
         var localPlaces = Local.getData("places");

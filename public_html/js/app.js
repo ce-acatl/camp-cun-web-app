@@ -66,7 +66,6 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
             AppF.place = place;
             if(AppF.place.latitude !== ""){
                 var mapOptions = {
-                  center: { lat: parseFloat(AppF.place.latitude), lng: parseFloat(AppF.place.longitude)},
                   zoom: 6,
                   mapTypeId: google.maps.MapTypeId.TERRAIN
                 };
@@ -77,6 +76,8 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
                     title:AppF.place.name,
                     icon: "img/marker.png"
                 });
+                map.setCenter(marker.position);
+                marker.setMap(map);
             } else {
                 var mapOptions = {
                   center: { lat: 21.002357, lng: -87.170852},

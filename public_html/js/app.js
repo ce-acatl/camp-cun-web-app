@@ -64,32 +64,27 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
         scope.goToPlace = function(place){
             AppF.mainView = "place";
             AppF.place = place;
-            scope.initialize = function() {
-                if(AppF.place.latitude !== ""){
-                    var mapOptions = {
-                      center: { lat: parseFloat(AppF.place.latitude), lng: parseFloat(AppF.place.longitude)},
-                      zoom: 6,
-                      mapTypeId: google.maps.MapTypeId.TERRAIN
-                    };
-                    var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
-                    var myLatlng = new google.maps.LatLng(AppF.place.latitude,AppF.place.longitude);
-                    var marker = new google.maps.Marker({
-                        position: myLatlng,
-                        title:AppF.place.name,
-                        icon: "img/marker.png"
-                    });
-                } else {
-                    var mapOptions = {
-                      center: { lat: 21.002357, lng: -87.170852},
-                      zoom: 6,
-                      mapTypeId: google.maps.MapTypeId.TERRAIN
-                    };
-                    var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
-                } 
-            }
-            $(document).ready(function(){
-                scope.initialize();
-            });
+            if(AppF.place.latitude !== ""){
+                var mapOptions = {
+                  center: { lat: parseFloat(AppF.place.latitude), lng: parseFloat(AppF.place.longitude)},
+                  zoom: 6,
+                  mapTypeId: google.maps.MapTypeId.TERRAIN
+                };
+                var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
+                var myLatlng = new google.maps.LatLng(AppF.place.latitude,AppF.place.longitude);
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    title:AppF.place.name,
+                    icon: "img/marker.png"
+                });
+            } else {
+                var mapOptions = {
+                  center: { lat: 21.002357, lng: -87.170852},
+                  zoom: 6,
+                  mapTypeId: google.maps.MapTypeId.TERRAIN
+                };
+                var map = new google.maps.Map(document.getElementById('placeMap'), mapOptions);
+            } 
         }
     }]);
 

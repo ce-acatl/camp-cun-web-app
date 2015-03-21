@@ -1,0 +1,178 @@
+.logo {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+body {
+    
+}
+#subMenu {
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 50px;
+    height: 50px;
+    background: #9CADCE;
+    border-radius: 0;
+    padding-right: 20px;
+}
+#subMenu ul li a {
+    color: white;
+    cursor: pointer;
+}
+#subMenu ul li a:hover {
+    background: #333;
+}
+#viewContent {
+    width: 100%;
+    display: block;
+    position: fixed;
+    z-index: -2;
+    overflow: hidden;
+    top: 50px;
+    bottom: 50px;
+    background: whitesmoke;
+    
+}
+#mainMenu {
+    background: #134074 !important;
+    max-height: 50px !important;
+}
+#mainMenu .navbar-header {
+    width: 100% !important;
+}
+#mainMenu a.link {
+    line-height: 50px;
+    vertical-align: middle;
+    color: white;
+    margin-right: 20px;
+    cursor: pointer;
+}
+#placeFooter a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-top: 4px solid #9CADCE;
+}
+#placeFooter a:hover {
+    background: #52B2CF;
+}
+#tabs, #placeFooter {
+    width: 100%;
+    display: block;
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+    height: 50px;
+    background: #134074;
+}
+#tabs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#tabs ul li {
+    display: block;
+    width: 33.33%;
+    height: 50px;
+    float: left;
+}
+#tabs ul li a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    width: 100%;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    border-top: 4px solid #9CADCE;
+}
+#tabs ul li a.current {
+    background: #52B2CF;
+    border-top: 4px solid #D1CFE2;
+}
+#tabs ul li a:hover {
+    background: #52B2CF;
+}
+.navbar-brand {
+    color: white !important;
+}
+.viewC {
+    height: 100%;
+    display: block;
+    width: 100%;
+    overflow-y: scroll;
+}
+.placeDirectory, .todoList {
+    height: 50px;
+    border-bottom: 1px solid #D1CFE2;
+}
+.placeDirectory div, .todoList div {
+    height: 50px;
+}
+.todoList div input, .todoList div span {
+    line-height: 50px;
+    vertical-align: middle;
+    height: 50px;
+    display: block;
+}
+.placeDirectory div span {
+    height: 25px;
+    line-height: 25px;
+    vertical-align: middle;
+    display: block;
+}
+.placeDirectory div span.name {
+    font-size: 15px;
+    color: #134074;
+}
+.placeDirectory div span.price {
+    font-size: 10px;
+    color: #52B2CF;
+}
+.placeDirectory div button {
+    width: 80%;
+    margin: 0 auto;
+    height: 30px;
+    margin: 10px 0;
+}
+.scroll {
+    overflow-y: scroll;
+}
+.half {
+    height: 50%;
+    width: 100%;
+    display: block;
+}
+.infoList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.infoList li {
+    width: 100%;
+    min-height: 50px;
+    display: block;
+    border-bottom: 1px solid #D1CFE2; 
+    padding: 10px 20px;
+}
+.infoList li strong {
+    margin-right: 10px;
+    font-size: 13px;
+    color: #134074;
+    min-width: 80px;
+    display: block;
+    float: left;
+}
+.infoList li span {
+    font-size: 11px;
+    color: #333;
+    display: block;
+    float: left;
+}

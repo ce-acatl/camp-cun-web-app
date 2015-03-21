@@ -1,0 +1,28 @@
+<div class="half scroll">
+    <ul class="infoList">
+        <li>
+            <strong>Nombre</strong>
+            <span>{{appF.place.name}}</span>
+        </li>
+        <li>
+            <strong>Dirección</strong>
+            <span>{{appF.place.address}}</span>
+        </li>
+        <li>
+            <strong>Teléfono</strong>
+            <span>{{appF.place.phone}}</span>
+        </li>
+        <li>
+            <strong>Página Web</strong>
+            <span><a href="{{appF.place.url}}">{{appF.place.url}}</a></span>
+        </li>
+        <li ng-if="appF.place.img_url !== ''">
+            <img ng-src="{{appF.place.img_url}}" />
+        </li>
+        <li>
+            <strong>Acepta Mascotas</strong>
+            <span>{{(appF.place.pets) ? "Si": "No"}}</span>
+        </li>
+    </ul>
+</div>
+<div class="half" id="placeMap"></div>

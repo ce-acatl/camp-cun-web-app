@@ -1,0 +1,12 @@
+<div class="col-xs-12" ng-repeat="place in appF.places">
+    <div class="placeDirectory">
+        <div class="col-xs-8">
+            <span class="name">{{place.name}}</span>
+        <span ng-show="place.price_per_person == 0 || place.price_per_person == ''" class="price">Precio Desconocido</span>
+        <span ng-show="place.price_per_person > 1" class="price">{{place.price_per_person}} USD</span>
+        </div>
+        <div class="col-xs-4">
+            <button class="btn btn-primary" ng-click="goToPlace(place)"><i class="glyphicon glyphicon-map-marker"></i> Ver</button>
+        </div>
+    </div>
+</div>

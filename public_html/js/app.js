@@ -86,12 +86,19 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile','$parse',
                 title: place.name,
                 icon: "img/marker.png"
             });
+            var url = parseUrl(place);
             google.maps.event.addListener(marker, 'click', function(){
                 infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlaceById('+place.id+')">' + place.name + '</a>');
                 infoWindow.open(scope.map, marker);
             });
-            $parse($("#m"+p))(scope);
-            $compile($("#m"+p).contents())(scope);
+        }
+        var parseUrl = function(place){
+            var zoom = 6;
+            var center = "'"+place.latitude+"',"+place.longitude+"'";
+            var marker = "'"+place.latitude+"',"+place.longitude+"',blue'";
+            var api_key = "AIzaSyBThXd6ah49EH03wttziSsXbj8Fl-j1DT4";
+            var url = 'http://maps.google.com/staticmap?center='+center+'&zoom='+zoom+'&markers='+marker+'&key='+api_key;
+            return url;
         }
         scope.initializeMap = function(){
             var latlng = new google.maps.LatLng(21.155783,-86.840402);

@@ -15,7 +15,7 @@
     <body ng-controller="AppCtrl">
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="mainMenu">
             <div class="navbar-header">
-                <a class="navbar-brand" href=""><img class="logo" src="img/logo.png" /> Camp-cun</a>
+                <a class="navbar-brand" ng-click="changeTab('map')"><img class="logo" src="img/logo.png" /> Camp-cun</a>
                 <a ng-show="appF.mainView == 'place'" class="pull-right link" ng-click="changeTab('directory')"><i class="glyphicon glyphicon-arrow-left"></i> Regresar</a>
             </div>
         </nav>
@@ -25,7 +25,7 @@
             <div ng-show="appF.mainView == 'todos'" id="todos" class="viewC" todos></div>
             <div ng-show="appF.mainView == 'place'" id="place" class="viewC" place></div>
         </div>
-        <div id="tabs" ng-show="appF.mainView == 'map' || appF.mainView == 'directory' || appF.mainView == 'place'">
+        <div id="tabs">
             <ul>
                 <li>
                     <a ng-class="{'current':appF.mainView == 'map'}"

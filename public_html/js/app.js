@@ -93,11 +93,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile','$parse',
             });
         }
         var parseUrl = function(place){
-            var zoom = 6;
-            var center = "'"+place.latitude+"',"+place.longitude+"'";
-            var marker = "'"+place.latitude+"',"+place.longitude+"',blue'";
-            var api_key = "AIzaSyBThXd6ah49EH03wttziSsXbj8Fl-j1DT4";
-            var url = 'http://maps.google.com/staticmap?center='+center+'&zoom='+zoom+'&markers='+marker+'&key='+api_key;
+            var url = 'https://www.google.com/maps/place//@'+place.latitude+','+place.longitude+',6z/';
             return url;
         }
         scope.initializeMap = function(){

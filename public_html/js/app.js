@@ -33,6 +33,10 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
                         icon: "img/marker.png"
                     });
                 }
+                google.maps.event.addListenerOnce(map, 'idle', function() {
+                    google.maps.event.trigger(map, 'resize');
+                    map.setCenter(latlng);
+                });
             }
             scope.initializeMap();
         }

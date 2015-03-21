@@ -80,6 +80,7 @@ App.controller('tabsCtrl', ['$scope', 'AppF','LocalS',
                 marker.setMap(map);
                 google.maps.event.addListenerOnce(map, 'idle', function() {
                     google.maps.event.trigger(map, 'resize');
+                    map.setCenter(marker.position);
                 });
             } else {
                 var mapOptions = {

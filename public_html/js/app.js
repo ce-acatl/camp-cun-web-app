@@ -1,8 +1,8 @@
 'use strict';
 var App = angular.module('campCunApp', ['angular-loading-bar']);
 
-App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
-    function (scope, AppF, Local) {
+App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile',
+    function (scope, AppF, Local, $compile) {
         scope.changeTab = function(tab){
             AppF.mainView = tab;
             Local.setData("tab",AppF.mainView);
@@ -61,9 +61,10 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS',
                     icon: "img/marker.png"
                 });
                 google.maps.event.addListenerOnce(marker[p], 'click', function(){
-                    infoWindow.setContent('<a ng-click="goToPlace('+place+')">' + marker.title + '</a>');
+                    infoWindow.setContent('<a id="m'+p+'" ng-click="goToPlace('+place+')">' + place.name + '</a>');
                     infoWindow.open(map, marker[p]);
                 });
+                $compile($("#m"+p))(scope);
             }
             
             google.maps.event.addListenerOnce(map, 'idle', function() {

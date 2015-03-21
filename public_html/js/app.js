@@ -88,7 +88,7 @@ App.controller('AppCtrl', ['$scope', 'AppF','LocalS','$compile','$parse',
             });
             var url = parseUrl(place);
             google.maps.event.addListener(marker, 'click', function(){
-                infoWindow.setContent('<a id="m'+p+'" src="'+url+'">' + place.name + '</a>');
+                infoWindow.setContent('<a id="m'+p+'" href="'+url+'">' + place.name + '</a>');
                 infoWindow.open(scope.map, marker);
             });
         }
